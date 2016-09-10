@@ -8,9 +8,10 @@ angular.module('starter.controllers', [])
         $scope.showAlert("POR FAVOR INGRESE SU NOMBRE");
       else{
         $scope.showAlert("BIENVENIDO " + $scope.usuario.nombre + "!");
-        $state.go('tab.jugar');
+        alert($scope.usuario.nombre);
+        var usuario = { "nombre": $scope.usuario.nombre};
+        $state.go('tab.jugar', usuario);
       }
-        
     };
 
     $scope.showAlert = function(resultado) {
@@ -23,7 +24,10 @@ angular.module('starter.controllers', [])
    };
 })
 
-.controller('JugarCtrl', function($scope, $ionicPopup, Preguntas, Respuestas, Opciones ) {
+.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, Preguntas, Respuestas, Opciones ) {
+  console.log($stateParams);
+
+  $scope.nombreUsuario = angular.fromJson($stateParams);
   $scope.showComenzar = true;
   $scope.preguntas = Preguntas;
   $scope.respuestas = Respuestas;
@@ -32,8 +36,13 @@ angular.module('starter.controllers', [])
   console.log($scope.random); 
 
   $scope.getPregunta = function() {
+    if($scope.nombreUsuario.nombre == 'NOLOGUEADO'){
+    $scope.showAlert("No se ha logueado!");
+    $state.go('tab.login');
+  }else{
     $scope.showComenzar = false;
     $scope.showPregunta = true;
+  }
   };
 
   $scope.setRespuesta = function(idOpcion, idPregunta, Respuesta) {

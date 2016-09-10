@@ -51,7 +51,7 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
   })
 
   .state('tab.jugar', {
-      url: '/jugar',
+      url: '/jugar/:nombre',
       views: {
         'tab-jugar': {
           templateUrl: 'templates/tab-jugar.html',
@@ -59,6 +59,7 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
         }
       }
     })
+  
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
