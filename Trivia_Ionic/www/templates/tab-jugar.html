@@ -18,13 +18,13 @@
 <br><br>
 <br><br>
 
-<button class="button button-block button-positive" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o1'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, preguntas[random].$id, respuestas[random].$value)">
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o1'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp1')">
   {{opcion.$value}}
 </button>
-<button class="button button-block button-positive" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o2'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, preguntas[random].$id, respuestas[random].$value)">
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o2'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp2')">
   {{opcion.$value}}
 </button>
-<button class="button button-block button-positive" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o3'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, preguntas[random].$id, respuestas[random].$value)">
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o3'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp3')">
   {{opcion.$value}}
 </button>
 </div>
