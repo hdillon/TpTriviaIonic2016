@@ -1,0 +1,34 @@
+<ion-view view-title="Trivia" class="center">
+  <ion-content>
+
+<center ng-show="showComenzar">
+    <button class="button button-positive" ng-click="getPregunta()">
+      Comenzar a jugar!
+    </button>
+</center>
+
+<div ng-show = "showPregunta">
+<br><br>
+<br><br>
+  <center>
+    {{preguntas[random].$value}}
+  </center>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+<button class="button button-block button-positive" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o1'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, preguntas[random].$id, respuestas[random].$value)">
+  {{opcion.$value}}
+</button>
+<button class="button button-block button-positive" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o2'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, preguntas[random].$id, respuestas[random].$value)">
+  {{opcion.$value}}
+</button>
+<button class="button button-block button-positive" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o3'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, preguntas[random].$id, respuestas[random].$value)">
+  {{opcion.$value}}
+</button>
+</div>
+
+  </ion-content>
+</ion-view>
