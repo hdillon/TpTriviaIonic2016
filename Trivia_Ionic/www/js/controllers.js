@@ -49,14 +49,27 @@ angular.module('starter.controllers', [])
   $scope.setRespuesta = function(idOpcion, Respuesta, btnApretado) {
     if(idOpcion == Respuesta){
       $scope.cambiarColorBoton(btnApretado, 'correcto');
+    //Le agrego un retardo para que me muestre el popUp del resultado y me muestre la próxima pregunta
+    setTimeout(function() {
       $scope.showAlert("CORRECTO!");
+      }, 1000);
+      //vuelvo a poner el boton en el color por default
+      setTimeout(function() {
+      $scope.cambiarColorBoton(btnApretado, 'clear');
+      }, 1500);
+      
     }
     else{
       $scope.cambiarColorBoton(btnApretado, 'incorrecto');
-      $scope.showAlert("INCORRECTO!");
+    
+      setTimeout(function() {
+        $scope.showAlert("INCORRECTO!");
+      }, 1000);
+
+      setTimeout(function() {
+      $scope.cambiarColorBoton(btnApretado, 'clear');
+      }, 1500);
     }
-    //recargo la variable random para que se recargue la pregunta
-    $scope.random = Math.round(Math.random() * 2); 
   };
 
 
@@ -84,7 +97,8 @@ angular.module('starter.controllers', [])
       });
 
       alertPopup.then(function(res) {
-         // Custom functionality....
+        //recargo la variable random para que se recargue la siguiente pregunta
+         $scope.random = Math.round(Math.random() * 2); 
       });
    };
 
