@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
    };
 })
 
-.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, Preguntas, Respuestas, Opciones ) {
+.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration, Preguntas, Respuestas, Opciones ) {
 
   $scope.nombreUsuario = angular.fromJson($stateParams);
   $scope.showComenzar = true;
@@ -48,27 +48,29 @@ angular.module('starter.controllers', [])
 
   $scope.setRespuesta = function(idOpcion, Respuesta, btnApretado) {
     if(idOpcion == Respuesta){
+      try{
+      $cordovaVibration.vibrate(100);  
+      }catch(err){
+        alert("No es un dispositivo mobile" + err.message);
+      }
       $scope.cambiarColorBoton(btnApretado, 'correcto');
     //Le agrego un retardo para que me muestre el popUp del resultado y me muestre la próxima pregunta
     setTimeout(function() {
-      $scope.showAlert("CORRECTO!");
-      }, 1000);
-      //vuelvo a poner el boton en el color por default
-      setTimeout(function() {
-      $scope.cambiarColorBoton(btnApretado, 'clear');
-      }, 1500);
-      
+      $scope.showAlert("CORRECTO!", btnApretado);
+      }, 700);  
     }
     else{
+      try{
+        var patron = [100, 100, 100, 100];
+      $cordovaVibration.vibrate(patron); 
+      }catch(err){
+        alert("No es un dispositivo mobile" + err.message);
+      }
       $scope.cambiarColorBoton(btnApretado, 'incorrecto');
     
       setTimeout(function() {
-        $scope.showAlert("INCORRECTO!");
-      }, 1000);
-
-      setTimeout(function() {
-      $scope.cambiarColorBoton(btnApretado, 'clear');
-      }, 1500);
+        $scope.showAlert("INCORRECTO!", btnApretado);
+      }, 700);
     }
   };
 
@@ -89,7 +91,7 @@ angular.module('starter.controllers', [])
       }
   }
 
-  $scope.showAlert = function(resultado) {
+  $scope.showAlert = function(resultado, btnApretado) {
   
       var alertPopup = $ionicPopup.alert({
          title: resultado,
@@ -97,6 +99,8 @@ angular.module('starter.controllers', [])
       });
 
       alertPopup.then(function(res) {
+        //vuelvo a poner el boton en el color por default
+        $scope.cambiarColorBoton(btnApretado, 'clear'); 
         //recargo la variable random para que se recargue la siguiente pregunta
          $scope.random = Math.round(Math.random() * 2); 
       });
