@@ -122,7 +122,7 @@ try{
       .then(function (msg) {
         console.log(msg);
       }, function (error) {
-        alert(error);
+        console.log(error);
       });
 
   $cordovaNativeAudio
@@ -130,7 +130,7 @@ try{
       .then(function (msg) {
         console.log(msg);
       }, function (error) {
-        alert(error);
+        console.log(error);
       });
   }
 }catch(err){
