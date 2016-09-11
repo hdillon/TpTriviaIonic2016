@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
    };
 })
 
-.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration, Preguntas, Respuestas, Opciones ) {
+.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration,  $cordovaNativeAudio, $timeout, Preguntas, Respuestas, Opciones ) {
 
   $scope.nombreUsuario = angular.fromJson($stateParams);
   $scope.showComenzar = true;
@@ -54,6 +54,7 @@ angular.module('starter.controllers', [])
         alert("No es un dispositivo mobile" + err.message);
       }
       $scope.cambiarColorBoton(btnApretado, 'correcto');
+      $scope.play('clickBien');
     //Le agrego un retardo para que me muestre el popUp del resultado y me muestre la próxima pregunta
     setTimeout(function() {
       $scope.showAlert("CORRECTO!", btnApretado);
@@ -67,6 +68,7 @@ angular.module('starter.controllers', [])
         alert("No es un dispositivo mobile" + err.message);
       }
       $scope.cambiarColorBoton(btnApretado, 'incorrecto');
+      $scope.play('clickMal');
     
       setTimeout(function() {
         $scope.showAlert("INCORRECTO!", btnApretado);
@@ -106,6 +108,27 @@ angular.module('starter.controllers', [])
       });
    };
 
+/****FUNCIONES NATIVE AUDIO****/
+$cordovaNativeAudio
+    .preloadSimple('clickBien', 'audio/correcto.mp3')
+    .then(function (msg) {
+      console.log(msg);
+    }, function (error) {
+      alert(error);
+    });
+
+$cordovaNativeAudio
+    .preloadSimple('clickMal', 'audio/incorrecto.mp3')
+    .then(function (msg) {
+      console.log(msg);
+    }, function (error) {
+      alert(error);
+    });
+
+  $scope.play = function (sound) {
+    $cordovaNativeAudio.play(sound);
+  };
+/****FIN FUNCIONES NATIVE AUDIO****/
 
 })
 
