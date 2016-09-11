@@ -27,6 +27,7 @@ angular.module('starter.controllers', [])
 
   $scope.nombreUsuario = angular.fromJson($stateParams);
   $scope.showComenzar = true;
+  $scope.seCargaronLosSonidos = false;
   $scope.preguntas = Preguntas;
   $scope.respuestas = Respuestas;
   $scope.opciones = Opciones;
@@ -51,7 +52,7 @@ angular.module('starter.controllers', [])
       try{
       $cordovaVibration.vibrate(100);  
       }catch(err){
-        alert("No es un dispositivo mobile" + err.message);
+        console.log("No es un dispositivo mobile");
       }
       $scope.cambiarColorBoton(btnApretado, 'correcto');
       $scope.play('clickBien');
@@ -63,13 +64,18 @@ angular.module('starter.controllers', [])
     else{
       try{
         var patron = [100, 100, 100, 100];
-      $cordovaVibration.vibrate(patron); 
+        $cordovaVibration.vibrate(patron); 
       }catch(err){
-        alert("No es un dispositivo mobile" + err.message);
+        console.log("No es un dispositivo mobile");
       }
       $scope.cambiarColorBoton(btnApretado, 'incorrecto');
+
+      try{
       $scope.play('clickMal');
-    
+      }catch(err){
+        console.log("No es un dispositivo mobile");
+      }
+
       setTimeout(function() {
         $scope.showAlert("INCORRECTO!", btnApretado);
       }, 700);
@@ -108,26 +114,37 @@ angular.module('starter.controllers', [])
       });
    };
 
+try{
+  if(!$scope.seCargaronLosSonidos){
+    $scope.seCargaronLosSonidos = true;
+  $cordovaNativeAudio
+      .preloadSimple('clickBien', 'audio/correcto.mp3')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+
+  $cordovaNativeAudio
+      .preloadSimple('clickMal', 'audio/incorrecto.mp3')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        alert(error);
+      });
+  }
+}catch(err){
+  console.log("No es un dispositivo mobile");
+}
+
 /****FUNCIONES NATIVE AUDIO****/
-$cordovaNativeAudio
-    .preloadSimple('clickBien', 'audio/correcto.mp3')
-    .then(function (msg) {
-      console.log(msg);
-    }, function (error) {
-      alert(error);
-    });
-
-$cordovaNativeAudio
-    .preloadSimple('clickMal', 'audio/incorrecto.mp3')
-    .then(function (msg) {
-      console.log(msg);
-    }, function (error) {
-      alert(error);
-    });
-
-  $scope.play = function (sound) {
-    $cordovaNativeAudio.play(sound);
-  };
+$scope.play = function (sound) {
+  try{
+  $cordovaNativeAudio.play(sound);
+  }catch(err){
+    console.log("No es un dispositivo mobile");
+  }
+};
 /****FIN FUNCIONES NATIVE AUDIO****/
 
 })
