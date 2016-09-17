@@ -18,3 +18,6 @@ detectar el movimiento del telefono y al moverlo se debe mover una imagen.
 
 
 Cache=false
+
+Guardar las respuestas y preguntas en un txt (string.json)
+cada vez que guardo el archivo 

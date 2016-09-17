@@ -65,6 +65,6 @@ angular.module('starter.services', [])
 })
 
 .factory("Base", function($firebaseArray) {
-  var itemsRef = new Firebase('https://triviaionic.firebaseio.com/');
+  var itemsRef = new Firebase('https://triviaionicapp.firebaseio.com/');
   return itemsRef;
 });

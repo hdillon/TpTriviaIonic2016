@@ -1,0 +1,53 @@
+{
+pregunta : "Dios Esxiste?",
+rtas :[
+{
+rta: "No",
+correcta: false
+}
+{
+rta: "Si",
+correcta: false
+}
+{
+rta: "Tal Vez",
+correcta: true
+}
+
+]
+
+	
+
+
+		},
+
+{
+pregunta : "Algo?",
+rtas :[
+{
+rta: "No",
+correcta: false
+}
+{
+rta: "Si",
+correcta: false
+}
+{
+rta: "Tal Vez",
+correcta: true
+}
+
+]
+
+	
+
+
+		}
+
+/*
+
+var data = {
+  pregunta:"",
+  rtas: ["" ,"", ""],
+  rtasCorrecta: ""
+}

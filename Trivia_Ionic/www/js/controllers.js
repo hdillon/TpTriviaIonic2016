@@ -39,32 +39,41 @@ angular.module('starter.controllers', [])
   var arrayOpciones = [];
   var arrayRespuestas = [];
 
-  var ref = new Firebase("https://triviaionic.firebaseio.com/");
+  var ref = new Firebase("https://triviaionicapp.firebaseio.com/preguntas");
+  /*ref.push({
+pregunta : "Dios Esxiste?",
+rtas :[
+{
+rta: "No",
+correcta: false
+},
+{
+rta: "Si",
+correcta: false
+},
+{
+rta: "Tal Vez",
+correcta: true
+}
+
+]
+    });*/
+$scope.algo;
 ref.once("value", function(snapshot) {
-  // The callback function will get called twice, once for "fred" and once for "barney"
-  snapshot.forEach(function(childSnapshot) {
-    // key will be "fred" the first time and "barney" the second time
-    var key = childSnapshot.key();
-    // childData will be the actual contents of the child
-    var childData = childSnapshot.val();
-
-
-    switch (key){
-      case 'preguntas':
-      arrayPreguntas = childData;
-      break;
-      default:
-      break;
-
-    }
-
+  console.info("Datos", snapshot.val());
+  
+  
+  
+    $scope.algo = snapshot.val();
+ 
+    
+console.log($scope.algo);
   });
 
-$scope.myJsonString = JSON.stringify(arrayPreguntas);
 
-    console.log($scope.myJsonString);
-  
-});
+
+
+ 
 
 
 
