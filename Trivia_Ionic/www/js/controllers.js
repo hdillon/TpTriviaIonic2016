@@ -35,6 +35,40 @@ angular.module('starter.controllers', [])
   $scope.btnOp2Estado = 'clear';
   $scope.btnOp3Estado = 'clear';
 
+  var arrayPreguntas = [];
+  var arrayOpciones = [];
+  var arrayRespuestas = [];
+
+  var ref = new Firebase("https://triviaionic.firebaseio.com/");
+ref.once("value", function(snapshot) {
+  // The callback function will get called twice, once for "fred" and once for "barney"
+  snapshot.forEach(function(childSnapshot) {
+    // key will be "fred" the first time and "barney" the second time
+    var key = childSnapshot.key();
+    // childData will be the actual contents of the child
+    var childData = childSnapshot.val();
+
+
+    switch (key){
+      case 'preguntas':
+      arrayPreguntas = childData;
+      break;
+      default:
+      break;
+
+    }
+
+  });
+
+$scope.myJsonString = JSON.stringify(arrayPreguntas);
+
+    console.log($scope.myJsonString);
+  
+});
+
+
+
+
   $scope.random = Math.round(Math.random() * 2); //TODO: Cambiar el random a un tanaño variable de a cuerdo a la cantidad de preguntas cargadas en firebase
 
   $scope.getPregunta = function() {

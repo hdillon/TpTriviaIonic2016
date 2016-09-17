@@ -18,7 +18,7 @@
 <br><br>
 <br><br>
 
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o1'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp1')">
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in myJsonString"  ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp1')">
   {{opcion.$value}}
 </button>
 <button class="button button-block button-positive" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in opciones" ng-show="opcion.$id =='o2'+preguntas[random].$id" ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp2')">

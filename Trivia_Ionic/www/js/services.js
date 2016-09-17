@@ -62,4 +62,9 @@ angular.module('starter.services', [])
 .factory("Respuestas", function($firebaseArray) {
   var itemsRef = new Firebase('https://triviaionic.firebaseio.com/');
   return $firebaseArray(itemsRef.child('respuestas'));
+})
+
+.factory("Base", function($firebaseArray) {
+  var itemsRef = new Firebase('https://triviaionic.firebaseio.com/');
+  return itemsRef;
 });

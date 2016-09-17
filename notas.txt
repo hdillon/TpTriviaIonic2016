@@ -1,0 +1,20 @@
+device-motion metodo watch aceleration devuelve 3 parametros (x, y, z y timeStamp)
+scope.x
+scope.y
+scope.z
+$window: tiene las propiedades iner wiht e inner higth me devuelve el ancho y alto de la pantalla.
+tengo que testear para que lados me cambia los valores x e y de manera positivo o negativo y ves si tienen limites los valores.
+Manejar la velocidad que se mueve la img para que sea constante.
+en el html {{}}
+
+html< style="top:{{altura}}" -> la voy a actualizar con la logica del js
+por defecto la img va a estar en el punto 0.0 que es el margen sup izquierdo. 
+
+if (x mayor a cero iactualizo la variable html)
+verificar margenes, tana;o de la pantalla y movimiento *para que lado
+
+detectar el movimiento del telefono y al moverlo se debe mover una imagen.
+-En la misma aplicacionn tiene que estar el menu para acceder a la trivia, al piano y a la pantalla del movimiento.
+
+
+Cache=false
