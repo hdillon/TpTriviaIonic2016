@@ -59,26 +59,18 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
         }
       }
     })
-  
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
 
   .state('tab.acercade', {
-    url: '/acercade',
-    views: {
-      'tab-acercade': {
-        templateUrl: 'templates/tab-acercade.html',
-        controller: 'AcercadeCtrl'
+      url: '/acercade',
+      views: {
+        'tab-acercade': {
+          templateUrl: 'templates/tab-acercade.html',
+          controller: 'AcercadeCtrl'
+        }
       }
-    }
-  });
+    });
+
+ 
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/login');

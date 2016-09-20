@@ -16,6 +16,14 @@
 
 img {
     border-radius: 90%;
+    max-width: 70%;
+    height: auto;
+
+}
+
+div.estiloAcercaDe{
+    text-align: center;
+    font-style: italic;
 }
 
 

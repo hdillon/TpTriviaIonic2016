@@ -2,30 +2,33 @@
   <ion-content>
 
 <center ng-show="showComenzar">
-    <button class="button button-positive" ng-click="getPregunta()">
-      Comenzar a jugar!
+  <div class="Frm animated bounceInLeft">
+    <button class="boton2" ng-click="getPregunta()">
+      Comenzar
     </button>
+  </div>  
 </center> 
 <div ng-show = "showPregunta">
 <br><br>
 <br><br>
   <center>
-    {{preguntas[random].$value}}
+    <div class="preguntas">
+    {{datosFB.preguntas[random].descripcion}}
+    </div>
   </center>
 <br><br>
 <br><br>
-<br><br>
-<br><br>
-<br><br>
 
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in algo"  ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp1')">
-  {{opcion.rtas[0].rta}}
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp1', datosFB.preguntas[random].rtas[0].correcta)">
+  {{datosFB.preguntas[random].rtas[0].rta}}
 </button>
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in algo"  ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp2')">
-  {{opcion.rtas[1].rta}}
+
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp2', datosFB.preguntas[random].rtas[1].correcta)">
+  {{datosFB.preguntas[random].rtas[1].rta}}
 </button>
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in algo"  ng-click="setRespuesta(opcion.$id, respuestas[random].$value, 'btnOp3')">
-  {{opcion.rtas[2].rta}}
+
+<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp3', datosFB.preguntas[random].rtas[2].correcta)">
+  {{datosFB.preguntas[random].rtas[2].rta}}
 </button>
 </div>
 

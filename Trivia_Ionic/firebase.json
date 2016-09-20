@@ -1,53 +1,153 @@
-{
-pregunta : "Dios Esxiste?",
-rtas :[
-{
-rta: "No",
-correcta: false
-}
-{
-rta: "Si",
-correcta: false
-}
-{
-rta: "Tal Vez",
-correcta: true
-}
-
+/*var ref = new Firebase("https://triviaionicapp.firebaseio.com/");
+  ref.push({
+preguntas :
+[
+  {
+    descripcion : "¿Dios Existe?",
+    rtas :
+    [
+      {
+      rta: "Si.",
+      correcta: false
+      },
+      {
+      rta: "No.",
+      correcta: false
+      },
+      {
+      rta: "Tal Vez.",
+      correcta: true
+      }
+    ]
+   },
+   {
+    descripcion : "¿Cuanto es 2+3*6?",
+    rtas :
+    [
+      {
+      rta: "20.",
+      correcta: true
+      },
+      {
+      rta: "30.",
+      correcta: false
+      },
+      {
+      rta: "Ninguna de las anteriores.",
+      correcta: false
+      }
+    ]
+   },
+   {
+    descripcion : "¿De que color era el caballo blanco de San Martin?",
+    rtas :
+    [
+      {
+      rta: "Marron.",
+      correcta: false
+      },
+      {
+      rta: "Blanco.",
+      correcta: true
+      },
+      {
+      rta: "Violeta.",
+      correcta: false
+      }
+    ]
+   },
+   {
+    descripcion : "¿Cuantos casilleros tiene un tablero de ajedrez?",
+    rtas :
+    [
+      {
+      rta: "81.",
+      correcta: false
+      },
+      {
+      rta: "49.",
+      correcta: false
+      },
+      {
+      rta: "64.",
+      correcta: true
+      }
+    ]
+   },
+   {
+    descripcion : "¿Cuál es el limite de edad establecido para participar en los Juegos Olímpicos?",
+    rtas :
+    [
+      {
+      rta: "40.",
+      correcta: false
+      },
+      {
+      rta: "Ninguno.",
+      correcta: true
+      },
+      {
+      rta: "60.",
+      correcta: false
+      }
+    ]
+   },
+   {
+    descripcion : "¿Qué órgano segrega la hormona insulina?",
+    rtas :
+    [
+      {
+      rta: "El hígado.",
+      correcta: false
+      },
+      {
+      rta: "El páncreas.",
+      correcta: true
+      },
+      {
+      rta: "El apéndice.",
+      correcta: false
+      }
+    ]
+   },
+   {
+    descripcion : "¿Con qué nombre firmaba Pablo Picasso sus pinturas?",
+    rtas :
+    [
+      {
+      rta: "Con Pablo P.",
+      correcta: false
+      },
+      {
+      rta: "Con P.P.",
+      correcta: false
+      },
+      {
+      rta: "Con Picasso.",
+      correcta: true
+      }
+    ]
+   },
+   {
+    descripcion : "¿Cuál es la moneda de Suiza?",
+    rtas :
+    [
+      {
+      rta: "El Franco Suizo.",
+      correcta: true
+      },
+      {
+      rta: "El Euro.",
+      correcta: false
+      },
+      {
+      rta: "El Dolar.",
+      correcta: false
+      }
+    ]
+   }
 ]
-
-	
-
-
-		},
-
-{
-pregunta : "Algo?",
-rtas :[
-{
-rta: "No",
-correcta: false
-}
-{
-rta: "Si",
-correcta: false
-}
-{
-rta: "Tal Vez",
-correcta: true
-}
-
-]
-
-	
+});*/
 
 
-		}
-
-/*
-
-var data = {
-  pregunta:"",
-  rtas: ["" ,"", ""],
-  rtasCorrecta: ""
-}
+    

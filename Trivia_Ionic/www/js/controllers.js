@@ -23,62 +23,26 @@ angular.module('starter.controllers', [])
    };
 })
 
-.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration,  $cordovaNativeAudio, $timeout, Preguntas, Respuestas, Opciones ) {
+.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration,  $cordovaNativeAudio, $timeout, Preguntas) {
 
   $scope.nombreUsuario = angular.fromJson($stateParams);
   $scope.showComenzar = true;
   $scope.seCargaronLosSonidos = false;
-  $scope.preguntas = Preguntas;
-  $scope.respuestas = Respuestas;
-  $scope.opciones = Opciones;
+  $scope.datosFB;
   $scope.btnOp1Estado = 'clear';
   $scope.btnOp2Estado = 'clear';
   $scope.btnOp3Estado = 'clear';
 
-  var arrayPreguntas = [];
-  var arrayOpciones = [];
-  var arrayRespuestas = [];
 
-  var ref = new Firebase("https://triviaionicapp.firebaseio.com/preguntas");
-  /*ref.push({
-pregunta : "Dios Esxiste?",
-rtas :[
-{
-rta: "No",
-correcta: false
-},
-{
-rta: "Si",
-correcta: false
-},
-{
-rta: "Tal Vez",
-correcta: true
-}
-
-]
-    });*/
-$scope.algo;
-ref.once("value", function(snapshot) {
+Preguntas.once("value", function(snapshot) {
   console.info("Datos", snapshot.val());
-  
-  
-  
-    $scope.algo = snapshot.val();
- 
-    
-console.log($scope.algo);
+
+  $scope.datosFB = snapshot.val();
+
+  console.info("scope", $scope.datosFB);
+  console.info("scope", $scope.datosFB.preguntas.length);
+  $scope.random = Math.round(Math.random() * ($scope.datosFB.preguntas.length - 1)); 
   });
-
-
-
-
- 
-
-
-
-
-  $scope.random = Math.round(Math.random() * 2); //TODO: Cambiar el random a un tanaño variable de a cuerdo a la cantidad de preguntas cargadas en firebase
 
   $scope.getPregunta = function() {
     if($scope.nombreUsuario.nombre == 'NOLOGUEADO'){
@@ -90,8 +54,8 @@ console.log($scope.algo);
   }
   };
 
-  $scope.setRespuesta = function(idOpcion, Respuesta, btnApretado) {
-    if(idOpcion == Respuesta){
+  $scope.setResultado = function(btnApretado, respuestaCorrecta) {
+    if(respuestaCorrecta){
       try{
       $cordovaVibration.vibrate(100);  
       }catch(err){
@@ -153,7 +117,7 @@ console.log($scope.algo);
         //vuelvo a poner el boton en el color por default
         $scope.cambiarColorBoton(btnApretado, 'clear'); 
         //recargo la variable random para que se recargue la siguiente pregunta
-         $scope.random = Math.round(Math.random() * 2); 
+         $scope.random = Math.round(Math.random() * ($scope.datosFB.preguntas.length - 1)); 
       });
    };
 
@@ -190,10 +154,6 @@ $scope.play = function (sound) {
 };
 /****FIN FUNCIONES NATIVE AUDIO****/
 
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('AcercadeCtrl', function($scope) {
