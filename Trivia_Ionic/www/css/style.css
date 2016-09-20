@@ -20,7 +20,14 @@ div.preguntas{
 	color:#585858;
 	font-family: Palatino Linotype;
 	font-size: 1.05rem;
-	margin: 1%;
+	margin-left:1%;
+	margin-right:1%;
+}
+ 
+div.respuestas{
+	width:96%;
+	margin-left:2%;
+	margin-right:2%;
 }
 
 button.miEstilo{

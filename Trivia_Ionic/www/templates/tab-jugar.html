@@ -1,33 +1,34 @@
-<ion-view view-title="Trivia" class="center">
+<ion-view view-title="Trivia">
   <ion-content>
 
 <center ng-show="showComenzar">
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
   <div class="Frm animated bounceInLeft">
     <button class="boton2" ng-click="getPregunta()">
       Comenzar
     </button>
   </div>  
 </center> 
-<div ng-show = "showPregunta">
+<div class="respuestas" ng-show = "showPregunta">
 <br><br>
 <br><br>
   <center>
-    <div class="preguntas">
+    <div class="preguntas Frm animated bounceInDown">
     {{datosFB.preguntas[random].descripcion}}
     </div>
   </center>
 <br><br>
 <br><br>
 
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp1', datosFB.preguntas[random].rtas[0].correcta)">
+<button class="button button-block button-positive Frm animated bounceInLeft" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp1', datosFB.preguntas[random].rtas[0].correcta)">
   {{datosFB.preguntas[random].rtas[0].rta}}
 </button>
 
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp2', datosFB.preguntas[random].rtas[1].correcta)">
+<button class="button button-block button-positive Frm animated bounceInRight" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp2', datosFB.preguntas[random].rtas[1].correcta)">
   {{datosFB.preguntas[random].rtas[1].rta}}
 </button>
 
-<button class="button button-block button-positive" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp3', datosFB.preguntas[random].rtas[2].correcta)">
+<button class="button button-block button-positive Frm animated bounceInUp" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp3', datosFB.preguntas[random].rtas[2].correcta)">
   {{datosFB.preguntas[random].rtas[2].rta}}
 </button>
 </div>
