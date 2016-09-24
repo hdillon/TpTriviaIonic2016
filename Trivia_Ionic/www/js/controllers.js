@@ -70,6 +70,7 @@ Preguntas.once("value", function(snapshot) {
     setTimeout(function() {
       $scope.showLoader = false;
       $scope.showPregunta = true;
+      $scope.showAlert("COMENZAR A JUGAR!");
       }, 700);
 
   }
