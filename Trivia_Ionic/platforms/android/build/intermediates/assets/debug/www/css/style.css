@@ -1,0 +1,81 @@
+/* Empty. Add your own CSS if you like */
+.center .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: -50px; 
+  text-align: center;
+}
+.center .scroll {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+div.preguntas{
+	text-align: center;
+	padding: 20px;
+	margin-bottom:10%;
+	width: 98%;
+	background-color:#CEECF5;
+	color:#585858;
+	font-family: Palatino Linotype;
+	font-size: 1.05rem;
+	margin-left:1%;
+	margin-right:1%;
+}
+ 
+div.respuestas{
+	width:96%;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+button.miEstilo{
+	width: 98%;
+	opacity:0.8;
+}
+
+ion-content{
+	background-color: green;
+	background: url('../img/interrogacion.jpg');
+	background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+    no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.bar-stable.bar-header, div.tab-nav.tabs{
+	background-color:#B0E0E6;
+}
+
+div.title.title-center.header-item, ion-header-bar, div.tab-nav.tabs i, div.tab-nav.tabs span{
+	color:black;
+}
+
+.boton2{
+background-color: #2dc234;
+background-image: -webkit-linear-gradient(rgba(41, 150, 47, .8), rgba(45, 194, 52, .2));
+background-image: -moz-linear-gradient(rgba(41, 150, 47, .8), rgba(45, 194, 52, .2));
+background-image: -o-linear-gradient(rgba(41, 150, 47, .8), rgba(45, 194, 52, .2));
+background-image: linear-gradient(rgba(41, 150, 47, .8), rgba(45, 194, 52, .2));
+-ms-border-radius:8px;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow: 0 8px 0 #197b1d, 0 10px 20px rgba(0, 0, 0, .4);
+-moz-box-shadow: 0 8px 0 #197b1d, 0 10px 20px rgba(0, 0, 0, .4);
+box-shadow: 0 8px 0 #197b1d, 0 10px 20px rgba(0, 0, 0, .4);
+color: #fff;
+display: inline-block;
+font-family: ‘Pacifico’, Arial, sans-serif;
+font-size: 30px;
+line-height: 1;
+padding: 15px 25px;
+text-decoration: none;
+text-shadow: 0 -1px 1px rgba(25, 123, 29, .7);
+}
