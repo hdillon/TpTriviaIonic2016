@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\TpTriviaIonic2016\Trivia_Ionic\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="85d84789e5050af3efa61b76021429f017bd2a19">
+        <dex dex="C:\TpTriviaIonic2016\Trivia_Ionic\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-unspecified-debug_58abb04ce98da585b35f483dff006c43cc84da14.jar" />
+    </item>
+
+</items>

@@ -9,6 +9,11 @@
     </button>
   </div>  
 </center> 
+
+<center ng-show = "showLoader">
+  <div class="loader"></div>
+</center>
+
 <div class="respuestas" ng-show = "showPregunta">
 <br><br>
 <br><br>
@@ -19,6 +24,7 @@
   </center>
 <br><br>
 <br><br>
+
 
 <button class="button button-block button-positive Frm animated bounceInLeft" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp1', datosFB.preguntas[random].rtas[0].correcta)">
   {{datosFB.preguntas[random].rtas[0].rta}}

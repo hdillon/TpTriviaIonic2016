@@ -177,38 +177,6 @@ $scope.play = function (sound) {
 /****FIN FUNCIONES NATIVE AUDIO****/
 
 
-
-$scope.guardarArchivo = function(datos) {
-  try{
-    $cordovaFile.checkFile(cordova.file.externalDataDirectory, "trivia.txt")
-    .then(function (success) {
-      $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, "trivia.txt", datos)
-      .then(function (success) {
-
-       }, function (error) {
-            
-          });
-      }, function (error) {
-        
-        $cordovaFile.createFile(cordova.file.externalDataDirectory, "trivia.txt", true)
-          .then(function (success) {
-
-          }, function (error) {
-
-          });
-        $cordovaFile.writeFile(cordova.file.externalDataDirectory, "trivia.txt", datos, true)
-          .then(function (success) {
-
-          }, function (error) {
-
-          });
-      });
-
-  } catch(err){
-    console.log("No es un dispositivo mobile");
-  }
-}
-
 })//fin controller
 
 .controller('AcercadeCtrl', function($scope) {
