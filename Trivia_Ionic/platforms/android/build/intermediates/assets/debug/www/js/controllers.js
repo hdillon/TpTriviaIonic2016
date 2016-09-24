@@ -1,29 +1,70 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, $ionicPopup, $state, $cordovaVibration,  $cordovaNativeAudio, $timeout) {
   $scope.usuario = {};
   $scope.usuario.nombre = "";
+  $scope.seCargaronLosSonidos = false;
+
   $scope.login = function() {
-      if($scope.usuario.nombre == "")
-        $scope.showAlert("POR FAVOR INGRESE SU NOMBRE");
+      if($scope.usuario.nombre == ""){
+        $scope.play('clickMal');
+        $scope.showAlert("POR FAVOR INGRESE SU NOMBRE", false);
+      }
       else{
-        $scope.showAlert("BIENVENIDO " + $scope.usuario.nombre + "!");
+        $scope.showAlert("BIENVENIDO " + $scope.usuario.nombre + "!", true);
+        $scope.play('clickBien');
       }
     };
 
-    $scope.showAlert = function(resultado) {
+    $scope.showAlert = function(resultado, jugar) {
       var alertPopup = $ionicPopup.alert({
          title: resultado
       });
       alertPopup.then(function(res) {
          // Custom functionality....
-        var usuario = { "nombre": $scope.usuario.nombre};
-        $state.go('tab.jugar', usuario);
+         if(jugar){
+            var usuario = { "nombre": $scope.usuario.nombre};
+            $state.go('tab.jugar', usuario);
+         }
       });
    };
+
+   $scope.play = function (sound) {
+  try{
+  $cordovaNativeAudio.play(sound);
+  }catch(err){
+    console.log("No es un dispositivo mobile");
+  }
+};
+    alert("ads");
+//CARGA DE SONIDOS:
+try{
+  if(!$scope.seCargaronLosSonidos){
+    alert("ad");
+    $scope.seCargaronLosSonidos = true;
+  $cordovaNativeAudio
+      .preloadSimple('clickBien', 'audio/correcto.mp3')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        console.log(error);
+      });
+
+  $cordovaNativeAudio
+      .preloadSimple('clickMal', 'audio/incorrecto.mp3')
+      .then(function (msg) {
+        console.log(msg);
+      }, function (error) {
+        console.log(error);
+      });
+  }
+}catch(err){
+  console.log("No es un dispositivo mobile");
+}
+
 })
 
-.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration,  $cordovaNativeAudio, $timeout, Preguntas) {
+.controller('JugarCtrl', function($scope, $ionicPopup, $state, $stateParams, $cordovaVibration,  $cordovaNativeAudio, $timeout, Preguntas, $cordovaFile) {
 
   $scope.nombreUsuario = angular.fromJson($stateParams);
   $scope.showComenzar = true;
@@ -121,28 +162,6 @@ Preguntas.once("value", function(snapshot) {
       });
    };
 
-try{
-  if(!$scope.seCargaronLosSonidos){
-    $scope.seCargaronLosSonidos = true;
-  $cordovaNativeAudio
-      .preloadSimple('clickBien', 'audio/correcto.mp3')
-      .then(function (msg) {
-        console.log(msg);
-      }, function (error) {
-        console.log(error);
-      });
-
-  $cordovaNativeAudio
-      .preloadSimple('clickMal', 'audio/incorrecto.mp3')
-      .then(function (msg) {
-        console.log(msg);
-      }, function (error) {
-        console.log(error);
-      });
-  }
-}catch(err){
-  console.log("No es un dispositivo mobile");
-}
 
 /****FUNCIONES NATIVE AUDIO****/
 $scope.play = function (sound) {
@@ -154,7 +173,40 @@ $scope.play = function (sound) {
 };
 /****FIN FUNCIONES NATIVE AUDIO****/
 
-})
+
+
+$scope.guardarArchivo = function(datos) {
+  try{
+    $cordovaFile.checkFile(cordova.file.externalDataDirectory, "trivia.txt")
+    .then(function (success) {
+      $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, "trivia.txt", datos)
+      .then(function (success) {
+
+       }, function (error) {
+            
+          });
+      }, function (error) {
+        
+        $cordovaFile.createFile(cordova.file.externalDataDirectory, "trivia.txt", true)
+          .then(function (success) {
+
+          }, function (error) {
+
+          });
+        $cordovaFile.writeFile(cordova.file.externalDataDirectory, "trivia.txt", datos, true)
+          .then(function (success) {
+
+          }, function (error) {
+
+          });
+      });
+
+  } catch(err){
+    console.log("No es un dispositivo mobile");
+  }
+}
+
+})//fin controller
 
 .controller('AcercadeCtrl', function($scope) {
   $scope.miFoto = 'img/perfil.png';

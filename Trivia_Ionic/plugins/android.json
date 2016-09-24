@@ -18,7 +18,14 @@
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.triviaionic664487"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.triviaionic664487"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.triviaionic664487"
+        }
+    }
 }
