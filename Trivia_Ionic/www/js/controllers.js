@@ -81,9 +81,6 @@ angular.module('starter.controllers', [])
   $scope.btnOp3Estado = 'clear';
   $scope.FBRef = new Firebase("https://triviaionicapp.firebaseio.com/");
 
-  //TODO: eliminar el pasaje del usuario por stateParams y hacerlo todo desde la factory!
-  
-
 
   Preguntas.once("value", function(snapshot) {
     console.info("Datos", snapshot.val());
@@ -113,11 +110,10 @@ angular.module('starter.controllers', [])
     }else{
       $scope.showComenzar = false;
       $scope.showLoader = true;
-
+      Usuario.setNombre($scope.nombreUsuario.nombre);
       setTimeout(function() {
         $scope.showLoader = false;
         $scope.showAlert("COMENZAR A JUGAR!");
-        Usuario.setNombre($scope.nombreUsuario.nombre);
         $scope.showPregunta = true;
         }, 700);
     }

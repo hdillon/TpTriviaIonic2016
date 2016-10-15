@@ -62,6 +62,7 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
 
   .state('tab.historial', {
       url: '/historial/:nombre',
+      cache: false,
       views: {
         'tab-historial': {
           templateUrl: 'templates/tab-historial.html',
