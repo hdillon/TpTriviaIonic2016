@@ -1,0 +1,21 @@
+<ion-view view-title="Historial Respuestas">
+  <ion-content>
+  <div class="Frm animated bounceInLeft">
+	  <div class="estiloAcercaDe">
+	    <h2>USUARIO: {{username}}</h2>
+	  </div>  
+
+	  	<div class="row header">
+          <div class="col h4">PREGUNTA</div>
+          <div class="col h4">RESPUESTA</div>
+          <div class="col h4">CORRECTA</div>
+        </div>
+        <div class="row" ng-repeat="datos in datosFBArray" ng-show="datos.usuario == username && datos.usuario != 'NOLOGUEADO'">
+          <div class="col">{{datos.pregunta}}</div>
+          <div class="col">{{datos.respuesta}}</div>
+          <div class="col">{{datos.escorrecta}}</div>
+        </div>
+
+  </div>
+  </ion-content>
+</ion-view>

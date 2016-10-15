@@ -18,6 +18,9 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.triviaionic664487"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.triviaionic664487"
         }
     },
     "dependent_plugins": {}

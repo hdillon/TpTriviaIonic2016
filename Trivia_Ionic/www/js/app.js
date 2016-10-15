@@ -60,6 +60,16 @@ angular.module('starter', ['ionic','firebase', 'starter.controllers', 'starter.s
       }
     })
 
+  .state('tab.historial', {
+      url: '/historial/:nombre',
+      views: {
+        'tab-historial': {
+          templateUrl: 'templates/tab-historial.html',
+          controller: 'HistorialCtrl'
+        }
+      }
+    })
+
   .state('tab.acercade', {
       url: '/acercade',
       views: {

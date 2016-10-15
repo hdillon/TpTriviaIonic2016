@@ -26,15 +26,15 @@
 <br><br>
 
 
-<button class="button button-block button-positive Frm animated bounceInLeft" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp1', datosFB.preguntas[random].rtas[0].correcta)">
+<button class="button button-block button-positive Frm animated bounceInLeft" ng-class="{'button-balanced': btnOp1Estado == 'correcto', 'button-assertive': btnOp1Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp1', datosFB.preguntas[random].rtas[0])">
   {{datosFB.preguntas[random].rtas[0].rta}}
 </button>
 
-<button class="button button-block button-positive Frm animated bounceInRight" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp2', datosFB.preguntas[random].rtas[1].correcta)">
+<button class="button button-block button-positive Frm animated bounceInRight" ng-class="{'button-balanced': btnOp2Estado == 'correcto', 'button-assertive': btnOp2Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp2', datosFB.preguntas[random].rtas[1])">
   {{datosFB.preguntas[random].rtas[1].rta}}
 </button>
 
-<button class="button button-block button-positive Frm animated bounceInUp" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp3', datosFB.preguntas[random].rtas[2].correcta)">
+<button class="button button-block button-positive Frm animated bounceInUp" ng-class="{'button-balanced': btnOp3Estado == 'correcto', 'button-assertive': btnOp3Estado == 'incorrecto'}" ng-repeat="opcion in datosFB"  ng-click="setResultado('btnOp3', datosFB.preguntas[random].rtas[2])">
   {{datosFB.preguntas[random].rtas[2].rta}}
 </button>
 </div>
